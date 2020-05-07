@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{titulo}}</p>          <!-- v-once = diz para o Vue não atualizar essa Propriedade  -->
+    <p>{{saudacao()}}</p>
+    <a v-bind:href="link">Google</a>  <!-- v-bind = Interpola 'conteúdo' nas PROPRIEDADES da tag html -->
+    <hr>
+    <p v-html="linkHtml"></p>         <!-- v-html = INTERPOLA tags HTML completas -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo : 'Usando Vue JS!',
+            link: "http://google.com.br",
+            linkHtml: '<a href="http://google.com.br">Google</a>'
+        },
+        methods: {
+            saudacao: function() {
+                this.titulo = "Bom dia"
+                return this.titulo
+            }
+        }
+    })
+</script>

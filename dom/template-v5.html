@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{titulo}}</p>          <!-- v-once = diz para o Vue não atualizar essa Propriedade  -->
+    <p>{{saudacao()}}</p>
+    <a v-bind:href="link">Google</a>  <!-- Uso de DIRETIVAS p/ INTERPOLAR 'propriedades' -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo : 'Usando Vue JS!',
+            link: "http://google.com.br"
+        },
+        methods: {
+            saudacao: function() {
+                this.titulo = "Bom dia"
+                return this.titulo
+            }
+        }
+    })
+</script>
