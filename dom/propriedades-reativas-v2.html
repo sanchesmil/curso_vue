@@ -1,0 +1,47 @@
+<script src="https://unpkg.com/vue"></script>
+
+<h3> PROPRIEDADES REATIVAS v2 - PROPRIEDADES COMPUTADAS </h3>
+<hr>
+
+<div id="app">    
+    <!--  -->
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="contador2++">Aumentar</button>
+    <button v-on:click="diminuir">Diminuir</button>
+
+    <h2>Contador: {{ contador }} | {{ contador2 }}</h2>
+    <h2>Resultado: {{ resultado }}</h2> <!-- Chama a propriedade computada 'resultado' -->
+    
+</div>
+
+<script>
+new Vue ({
+    el: "#app",
+    data : {
+        contador : 0,
+        contador2 : 0
+    },
+    computed: {  
+        // As 'Propriedade Computadas' são usadas quando desejo um resultado calculado, 
+        // que não seja tratado como um método e sim como uma propriedade ('atributo').
+        // Se os valores mudam sempre a melhor performance será usando o computed.
+
+        // A declaração é igual a de um método, mas a chamada é igual a de uma propriedade
+        resultado () {
+            console.log('Método computed -> resultado chamado ...')
+            return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+        }
+    },
+    methods : {       // Os methods são mais indicados para executar ações do usuário.
+        aumentar (){
+            this.contador ++
+        },
+        diminuir (){
+            this.contador --
+        },
+        //resultado () {
+        //   return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+        //}
+    }
+})
+</script>

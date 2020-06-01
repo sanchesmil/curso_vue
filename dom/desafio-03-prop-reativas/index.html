@@ -1,0 +1,24 @@
+<script src="https://unpkg.com/vue"></script>
+
+<h3> DESAFIO 3 - PROPRIEDADES REATIVAS </h3>
+
+<div id="desafio">
+    <h3> 1) Exibir em "resultado" o texto 'Valor Diferente de 37' enquanto  "valor" for  <br>
+         diferente de 37. Mostrar 'Valor Igual a 37' quando "valor" for igual a 37.
+    </h3>
+
+    <h3> 2) Monitorar as mudanças de "resultado" e reiniciar "valor" <br>
+        para 0 depois de 5 segundos (dica: setTimeOut(..., 5000) 
+    </h3>
+
+    <hr>
+
+    <div>
+        <p>Valor atual: <strong> {{ valor }} </strong></p>
+        <button @click="valor += 5">Somar 5</button>
+        <button @click="valor += 1">Somar 1</button>
+        <p>Resultado: <strong> {{resultado}} </strong></p>
+    </div>
+</div>
+
+<script src="app.js"></script>

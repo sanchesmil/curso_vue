@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<h3> EVENTOS DESAFIO 2 </h3>
+
+<div id="desafio">    
+    <hr>
+    <label for=""><strong>Exiba alert ao clicar no botão</strong></label><br><br>
+        <button v-on:click='exibirAlerta'>Exibir Alerta</button>        
+    <br><br>
+
+    <label for=""><strong>Escute o evento "Keyup" e armazene o "valor" na propriedade "data"</strong></label><br><br>
+    <div>
+        <input type="text" v-on:keyup='valor = $event.target.value'>   <!-- Atualização direta da variável 'valor' sem chamar função -->
+        <p>{{valor}}</p>
+    </div>
+
+    <label for=""><strong>Escute o evento "Keydown" + "enter" para armazenar o "valor" na propriedade "data"</strong></label><br><br>
+    <div>
+        <input type="text" v-on:keydown.enter='alterarValor'>  <!-- Atualização da variável 'valor' através da função 'armazenaValor' -->
+        <p>{{valor}}</p>
+    </div>
+
+</div>
+
+<script src="app.js"></script> 

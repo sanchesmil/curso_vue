@@ -2,9 +2,21 @@
 
 <!-- EVENTOS de MOUSE: 'click' --> 
 
+<h3> SINTAXE REDUZIDA - @ e ':'</h3>
+
 <div id="app">
+    
+    <p>
+        <ul>
+            <li>v-on = @ </li>
+            <li>v-bind = : (dois pontos) </li>
+        <ul>
+    </p>
+
     <p>{{contador}}</p>
-    <button v-on:click="somar">Somar 1</button>  <!-- v-on fica 'escutando' o evento -->
+    <button @click="somar">Somar 1</button>  <!-- @ ao invés de 'v-on' -->
+    <hr>
+    <input type="text" :value="contador">  <!-- ':' ao invés de 'v-bind'-->
 </div>
 
 <script>

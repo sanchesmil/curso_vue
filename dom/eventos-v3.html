@@ -1,10 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-<!-- EVENTOS de MOUSE: 'mousemove' -->
+<!-- EVENTOS de MOUSE: 'click' com Parâmetros --> 
 
 <div id="app">
-    <p>{{contador}}</p>
-    <button v-on:click="somar">Somar 1</button>  <!-- v-on fica 'escutando' o evento -->
+    <p>{{contador}}</p> 
+    <button v-on:click="somar(5,$event)">Somar 1</button> <!-- $event (variável reservada do vue)=> passa o tipo de evento (neste caso, click) -->
     <p v-on:mousemove="atualizarXY"> Mouse: {{ x }} e {{ y }}</p>
 </div>
 
@@ -17,8 +17,9 @@
             y: 0,
         },
         methods: {
-            somar(){    
-                this.contador ++
+            somar(valor,e){    
+                console.log(valor, e)
+                this.contador += valor
             },
             atualizarXY(event){
                 console.log(event)

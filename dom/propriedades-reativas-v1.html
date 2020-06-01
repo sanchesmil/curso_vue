@@ -1,0 +1,37 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<h3> PROPRIEDADES REATIVAS v1 - Two Way Data Binding</h3>
+<hr>
+
+
+<p><strong>Two-way data binding</strong> é o termo dado a reatividade dos elementos na sua interface. <br>
+    Ou seja, o que acontece no DOM (View), reflete no JavaScript(Model), <br>
+    e o que acontece no JavaScript(Model), reflete no DOM(View). </p>
+    <hr>
+
+<div id="app">    
+    <h3>1ª FORMA: Two Way Data Bind usando 'v-bind' + 'v-on':</h3>
+    <h3>{{titulo1}}</h3> 
+    <input type="text" v-bind:value="titulo1" v-on:input="titulo1 = $event.target.value">  <br><br> 
+    <!-- Implementa o Two Way Data Binding: 
+         v-bind = mostra na view o valor obtido da instância do Vue 
+         v-on = atualiza a instância do Vue conforme o valor inserido na view
+    -->
+    <hr>
+    
+    <!-- Usando o 'v-model' = ele implementa estas duas funcionalidades-->
+    <h3>2ª FORMA: Two Way Data Bind usando 'v-model':</h3>
+    <h3>{{titulo2}}</h3> 
+    <input type="text" v-model="titulo2">  
+    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo1: 'Exemplo 1 => ',
+            titulo2: 'Exemplo 2 => '
+        },
+    })
+</script>

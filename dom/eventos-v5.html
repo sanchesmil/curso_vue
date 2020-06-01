@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<h3> EVENTOS de TECLADO: keyup </h3>
+
+<div id="app">    
+    <hr>
+    <label for=""><strong>Evento '.keyup':</strong></label><br>
+    <input type="text" v-on:keyup="exibirAlerta"> <small> Sempre que soltar qualquer tecla vai chamar a função 'exibirAlerta'</small>
+    <br><br>
+
+    <label for=""><strong>Modificador de acesso '.enter':</strong></label> <br>
+    <input type="text" v-on:keyup.enter="exibirAlerta"><small>Somente quando clicar e soltar a tecla 'enter' é que vai chamar a função 'exibirAlerta'</small>
+
+    <br><br>
+    <label for=""><strong>Modificador de acesso encadeado: '.enter.alt' </strong></label> <br>
+    <input type="text" v-on:keyup.enter.alt="exibirAlerta"> <small> Somente quando clicar junto em 'ALT + ENTER' e soltar é que vai chamar a função 'exibirAlerta'</small>
+    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            exibirAlerta(){
+                alert('Estou te alertando')
+            }
+        }
+    })
+</script>

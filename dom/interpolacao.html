@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<h3> INTERPOLAÇÃO {{ }} </h3>
+
+<div id="app">    
+    <h3><strong>Contador:</strong> {{contador}}  => {{contador <= 10 ? 'Menor ou igual a 10' : 'Maior que 10'}} </h3> 
+
+    
+    <button v-on:click="somar">Somar 1</button> 
+    <br><br>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            somar(){    
+                this.contador ++
+            },
+        }
+    })
+</script>

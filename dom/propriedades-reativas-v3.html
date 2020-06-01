@@ -1,0 +1,55 @@
+<script src="https://unpkg.com/vue"></script>
+
+<h3> PROPRIEDADES REATIVAS v3 - OBSERVADOR (watch) </h3>
+<hr>
+<p>O Watch serve para 'monitorar as mudanças' de uma variável <br>
+    e retornar alguma resposta a estas alterações.</p>
+
+    <p><strong>Neste caso, zera o contador após 2 seg.</strong></p>
+<div id="app">    
+    <!--  -->
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="diminuir">Diminuir</button>
+
+    <h2>Contador: {{ contador }}</h2>
+    <h2>Resultado: {{ resultado }}</h2> <!-- Chama a propriedade computada 'resultado' -->
+    
+</div>
+
+<script>
+new Vue ({
+    el: "#app",
+    data : {
+        contador : 0,
+        contador2 : 0
+    },
+    computed: { 
+        resultado () {
+            return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+        }
+    },
+    watch: {  
+        // Obs.: o nome do observador deve ser o mesmo da propriedade a que se refere na seçao 'data'
+        // ou seja, você precisa dizer exatamente o nome da propriedade que você quer monitorar.
+        // Neste caso, "contador" se refere à variável "contador" definida em 'data' 
+        
+        contador(novo, antigo) { 
+            console.log(novo,antigo)
+
+            // zera o contador após 2 segundos
+            setTimeout(() => { 
+                this.contador = 0
+            }, 2000)
+        }
+    },
+
+    methods : {       // Os methods são mais indicados para executar ações do usuário.
+        aumentar (){
+            this.contador ++
+        },
+        diminuir (){
+            this.contador --
+        },
+    }
+})
+</script>
